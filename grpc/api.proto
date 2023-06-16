@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = ".";
+
+service CallbackService {
+    rpc Callback(CallbackReq) returns (CallbackRsp) {}
+}
+
+message CallbackReq {
+    string task_id = 1;
+    int32 data = 2;
+}
+
+message CallbackRsp {
+    int32 code = 1;
+}

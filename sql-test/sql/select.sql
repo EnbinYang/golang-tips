@@ -1,0 +1,1 @@
+SELECT COUNT(*) FROM llm_manage_state_test WHERE resource_type = 1 AND resource_id = 4;
