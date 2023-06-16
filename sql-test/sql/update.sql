@@ -1,1 +1,0 @@
-UPDATE llm_manage_state_test SET state = 0 WHERE resource_type = 1 AND resource_id = 4;
