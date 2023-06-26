@@ -1,11 +1,6 @@
 # golang-tips
 
-Provide some examples of learning Golang.
-Every project can build by `go build` command, such as
+Provide some examples of learning Golang. Every project can build by `go run` command, such as
 ```bash
-go build redis/update-redis-from-mysql/main.go
-```
-And then, you can running this file
-```bash
-./main
+go run redis/update_redis_from_mysql/main.go
 ```
