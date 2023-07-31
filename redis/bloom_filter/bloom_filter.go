@@ -58,13 +58,14 @@ func main() {
 	}
 
 	queryName := "enbin"
+	var password string
 	if bf.Test([]byte(fmt.Sprintf("%s", queryName))) {
 		// bloom filter hit
-		password, err := redisClient.Get(ctx, fmt.Sprintf("username:%s", queryName)).Result()
+		password, err = redisClient.Get(ctx, fmt.Sprintf("username:%s", queryName)).Result()
 		if err == redis.Nil {
-			log.Println("Data not found in Redis, key:", username)
+			log.Println("Data not found in Redis, key:", queryName)
 			// query data from MySQL
-			err := db.Raw("SELECT password FROM user WHERE username = ?", queryName).Scan(&password).Error
+			err = db.Raw("SELECT password FROM user WHERE username = ?", queryName).Scan(&password).Error
 			if err != nil {
 				log.Fatal("Error querying MySQL:", err)
 			} else {
